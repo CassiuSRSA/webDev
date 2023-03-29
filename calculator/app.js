@@ -46,6 +46,7 @@ class Calculator {
   compute() {
     let computation;
     const limitDigits = (number) => {
+      if (number === Infinity) return Infinity;
       if (number % 1 != 0) {
         const absolute = String(number).split(".")[0];
         const decimal = String(number).split(".")[1];
@@ -74,6 +75,7 @@ class Calculator {
         break;
       default:
     }
+    console.log(computation);
     this.currentCalc = computation;
     this.operation = undefined;
     this.previousCalc = "";
@@ -81,6 +83,7 @@ class Calculator {
   }
 
   getDisplayNumber(number) {
+    if (number === undefined) return "∞";
     const stringNumber = number.toString();
     const integerDigits = parseFloat(stringNumber.split(".")[0]);
     const decimalDigits = stringNumber.split(".")[1];
@@ -102,6 +105,7 @@ class Calculator {
 
   updateDisplay() {
     this.currentCalcDisplay.innerText = this.getDisplayNumber(this.currentCalc);
+
     if (this.operation != null) {
       this.previousCalcDisplay.innerText = `${this.getDisplayNumber(
         this.previousCalc
