@@ -13,6 +13,7 @@ class Calculator {
     this.previousCalcDisplay = previousCalcDisplay;
     this.currentCalcDisplay = currentCalcDisplay;
     this.clear();
+    this.computed = false;
   }
 
   clear() {
@@ -25,6 +26,11 @@ class Calculator {
   }
 
   appendNumber(number) {
+    if (this.computed === true) {
+      this.clear();
+      this.computed = false;
+    }
+    if (this.currentCalc === Infinity) this.clear();
     if (number === "." && this.currentCalc.includes(".")) return;
     this.currentCalc = String(this.currentCalc) + String(number);
   }
@@ -39,27 +45,39 @@ class Calculator {
   }
   compute() {
     let computation;
+    const limitDigits = (number) => {
+      if (number % 1 != 0) {
+        const absolute = String(number).split(".")[0];
+        const decimal = String(number).split(".")[1];
+        computation = Number(`${absolute}.${decimal.slice(0, 15)}`);
+        return computation;
+      } else {
+        computation = number;
+        return computation;
+      }
+    };
     const prev = parseFloat(this.previousCalc);
     const current = parseFloat(this.currentCalc);
     if (isNaN(prev) || isNaN(current)) return;
     switch (this.operation) {
       case "+":
-        computation = prev + current;
+        limitDigits(prev + current);
         break;
       case "-":
-        computation = prev - current;
+        limitDigits(prev - current);
         break;
       case "*":
-        computation = prev * current;
+        limitDigits(prev * current);
         break;
       case "÷":
-        computation = prev / current;
+        limitDigits(prev / current);
         break;
       default:
     }
     this.currentCalc = computation;
     this.operation = undefined;
     this.previousCalc = "";
+    this.computed = true;
   }
 
   getDisplayNumber(number) {
