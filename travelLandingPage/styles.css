@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
 :root {
   --overlay-color: #03a9f4;
@@ -9,7 +8,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .showcase {
@@ -52,7 +51,7 @@
   position: relative;
   width: 60px;
   height: 60px;
-  background: url('menu.png');
+  background: url("media/menu.png");
   background-repeat: no-repeat;
   background-size: 30px;
   background-position: center;
@@ -61,7 +60,7 @@
 }
 
 .toggle.active {
-  background: url('close.png');
+  background: url("media/close.png");
   background-repeat: no-repeat;
   background-size: 25px;
   background-position: center;
@@ -148,7 +147,6 @@
 .social li a {
   color: #fff;
   margin-right: 20px;
-  
 }
 
 .social li:hover {
@@ -181,9 +179,9 @@
   color: var(--overlay-color);
 }
 
-
-@media(max-width: 798px) {
-  .showcase, .showcase header {
+@media (max-width: 798px) {
+  .showcase,
+  .showcase header {
     padding: 40px;
   }
 
