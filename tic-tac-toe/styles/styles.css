@@ -1,0 +1,50 @@
+:root {
+  --background-primary: white;
+  --primary-color: rgb(140, 0, 255);
+  --gameboard-primary: rgb(215, 187, 247);
+  --gameboard-secondary: rgb(112, 13, 204);
+  --dark-text: rgb(50, 5, 87);
+  --btn-primary: rgb(140, 0, 255);
+  --btn-primary-light: rgb(230, 201, 252);
+  --btn-secondary: rgb(79, 10, 190);
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  color: rgb(44, 41, 44);
+  background-color: rgb(247, 239, 247);
+}
+
+#main-header {
+  background-color: var(--btn-primary);
+  color: white;
+  padding: 2rem 5%;
+  text-align: center;
+}
+
+.btn {
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--btn-primary);
+  border: 1px solid var(--btn-primary);
+  color: var(--background-primary);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-alt {
+  border-color: transparent;
+  background-color: transparent;
+  color: var(--btn-primary);
+}
+
+.btn:hover {
+  background-color: var(--btn-secondary);
+  border-color: var(--btn-secondary);
+}
+
+.btn-alt:hover {
+  background-color: var(--btn-primary-light);
+  border-color: transparent;
+}
